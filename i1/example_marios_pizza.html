@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario's Pizza</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background-color: #fff8f0;
+      color: #2c2c2c;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      background-color: #c0392b;
+      color: white;
+      padding: 24px 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    header .logo {
+      font-size: 56px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    /* ── Section headers ── */
+    h2 {
+      font-size: 20px;
+      color: #c0392b;
+      border-bottom: 2px solid #c0392b;
+      padding-bottom: 6px;
+      margin: 24px 0 12px;
+    }
+
+    /* ── Menu items ── */
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px 8px;
+      border-bottom: 1px solid #f0e0d0;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.15s;
+    }
+
+    .menu-item:hover {
+      background-color: #fdecea;
+    }
+
+    .menu-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #c0392b;
+      cursor: pointer;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .item-desc {
+      font-size: 13px;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    .item-price {
+      font-weight: bold;
+      color: #c0392b;
+      white-space: nowrap;
+      margin-left: 12px;
+      font-size: 16px;
+    }
+
+    /* ── Order section ── */
+    #order-section {
+      background-color: #fff;
+      border: 2px solid #c0392b;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 32px;
+    }
+
+    #order-section h2 {
+      border-color: #c0392b;
+      margin-top: 0;
+    }
+
+    #order-list {
+      min-height: 40px;
+      margin-bottom: 12px;
+    }
+
+    .order-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0e0d0;
+      font-size: 15px;
+    }
+
+    .empty-msg {
+      color: #aaa;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: bold;
+      padding-top: 10px;
+      margin-top: 6px;
+      border-top: 2px solid #c0392b;
+    }
+
+    /* ── Buttons ── */
+    .big-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: opacity 0.2s;
+    }
+
+    .big-btn:hover {
+      opacity: 0.88;
+    }
+
+    #generate-btn {
+      background-color: #27ae60;
+      color: white;
+    }
+
+    #copy-btn {
+      background-color: #2980b9;
+      color: white;
+      display: none;
+    }
+
+    #clear-btn {
+      background-color: #95a5a6;
+      color: white;
+    }
+
+    /* ── Text output ── */
+    #text-order {
+      display: none;
+      width: 100%;
+      font-size: 15px;
+      font-family: monospace;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 12px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #bbb;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="logo">🍕</span>
+    <h1>Mario's Pizza</h1>
+    <p>Fresh ingredients, made with love since 1987 · Call us at (555) 248-7299</p>
+  </header>
+
+  <!-- APPETIZERS -->
+  <h2>Appetizers</h2>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Garlic Bread" data-price="4.99">
+    <div class="item-info">
+      <div class="item-name">Garlic Bread</div>
+      <div class="item-desc">Toasted baguette with herb butter</div>
+    </div>
+    <span class="item-price">$4.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Bruschetta" data-price="6.99">
+    <div class="item-info">
+      <div class="item-name">Bruschetta</div>
+      <div class="item-desc">Tomatoes, basil, olive oil on toasted bread</div>
+    </div>
+    <span class="item-price">$6.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Mozzarella Sticks" data-price="7.99">
+    <div class="item-info">
+      <div class="item-name">Mozzarella Sticks</div>
+      <div class="item-desc">Fried golden, served with marinara</div>
+    </div>
+    <span class="item-price">$7.99</span>
+  </label>
+
+  <!-- PIZZAS -->
+  <h2>Pizzas</h2>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Margherita Pizza" data-price="11.99">
+    <div class="item-info">
+      <div class="item-name">Margherita</div>
+      <div class="item-desc">San Marzano tomato, fresh mozzarella, basil</div>
+    </div>
+    <span class="item-price">$11.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Pepperoni Pizza" data-price="13.99">
+    <div class="item-info">
+      <div class="item-name">Pepperoni</div>
+      <div class="item-desc">Classic red sauce, mozzarella, pepperoni</div>
+    </div>
+    <span class="item-price">$13.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Veggie Supreme Pizza" data-price="12.99">
+    <div class="item-info">
+      <div class="item-name">Veggie Supreme</div>
+      <div class="item-desc">Mushrooms, peppers, onions, olives, spinach</div>
+    </div>
+    <span class="item-price">$12.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Meat Lovers Pizza" data-price="15.99">
+    <div class="item-info">
+      <div class="item-name">Meat Lovers</div>
+      <div class="item-desc">Pepperoni, sausage, meatballs, ham, bacon</div>
+    </div>
+    <span class="item-price">$15.99</span>
+  </label>
+
+  <!-- PASTA -->
+  <h2>Pasta</h2>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Spaghetti & Meatballs" data-price="12.99">
+    <div class="item-info">
+      <div class="item-name">Spaghetti &amp; Meatballs</div>
+      <div class="item-desc">House-made tomato sauce, three large meatballs</div>
+    </div>
+    <span class="item-price">$12.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Fettuccine Alfredo" data-price="11.99">
+    <div class="item-info">
+      <div class="item-name">Fettuccine Alfredo</div>
+      <div class="item-desc">Creamy parmesan sauce, fresh pasta</div>
+    </div>
+    <span class="item-price">$11.99</span>
+  </label>
+
+  <!-- DRINKS -->
+  <h2>Drinks</h2>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Fountain Soda" data-price="2.99">
+    <div class="item-info">
+      <div class="item-name">Fountain Soda</div>
+      <div class="item-desc">Coke, Diet Coke, Sprite, Root Beer</div>
+    </div>
+    <span class="item-price">$2.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Sparkling Water" data-price="3.49">
+    <div class="item-info">
+      <div class="item-name">Sparkling Water</div>
+      <div class="item-desc">San Pellegrino</div>
+    </div>
+    <span class="item-price">$3.49</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Lemonade" data-price="3.49">
+    <div class="item-info">
+      <div class="item-name">Lemonade</div>
+      <div class="item-desc">Fresh-squeezed with mint</div>
+    </div>
+    <span class="item-price">$3.49</span>
+  </label>
+
+  <!-- DESSERTS -->
+  <h2>Desserts</h2>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Tiramisu" data-price="6.99">
+    <div class="item-info">
+      <div class="item-name">Tiramisu</div>
+      <div class="item-desc">Classic Italian, dusted with cocoa powder</div>
+    </div>
+    <span class="item-price">$6.99</span>
+  </label>
+
+  <label class="menu-item">
+    <input type="checkbox" data-name="Cannoli" data-price="5.99">
+    <div class="item-info">
+      <div class="item-name">Cannoli</div>
+      <div class="item-desc">Crispy shell, sweet ricotta filling</div>
+    </div>
+    <span class="item-price">$5.99</span>
+  </label>
+
+  <!-- ORDER SECTION -->
+  <div id="order-section">
+    <h2>🛒 Your Order</h2>
+    <div id="order-list">
+      <p class="empty-msg">Select items above to build your order.</p>
+    </div>
+    <div class="total-row">
+      <span>Total</span>
+      <span id="total">$0.00</span>
+    </div>
+
+    <button class="big-btn" id="generate-btn" onclick="generateTextOrder()">
+      📱 Create My Text Order
+    </button>
+    <textarea id="text-order" rows="10"></textarea>
+    <button class="big-btn" id="copy-btn" onclick="copyOrder()">
+      Copy to Clipboard
+    </button>
+    <button class="big-btn" id="clear-btn" onclick="clearOrder()">
+      Clear Order
+    </button>
+  </div>
+
+  <footer>
+    Mario's Pizza · 123 Main Street · (555) 248-7299
+  </footer>
+
+  <script>
+    function updateOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+      var orderList = document.getElementById("order-list");
+      var totalDisplay = document.getElementById("total");
+      var total = 0;
+      var html = "";
+
+      if (checked.length === 0) {
+        html = '<p class="empty-msg">Select items above to build your order.</p>';
+      } else {
+        checked.forEach(function(box) {
+          var name = box.dataset.name;
+          var price = parseFloat(box.dataset.price);
+          total += price;
+          html += `<div class="order-line"><span>${name}</span><span>$${price.toFixed(2)}</span></div>`;
+        });
+      }
+
+      orderList.innerHTML = html;
+      totalDisplay.textContent = "$" + total.toFixed(2);
+
+      // Hide text output when order changes
+      document.getElementById("text-order").style.display = "none";
+      document.getElementById("copy-btn").style.display = "none";
+      document.getElementById("copy-btn").textContent = "Copy to Clipboard";
+    }
+
+    function generateTextOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      if (checked.length === 0) {
+        alert("Please select some items first!");
+        return;
+      }
+
+      var total = 0;
+      var lines = ["Hi! I'd like to place a pickup order from Mario's Pizza:", ""];
+
+      checked.forEach(function(box) {
+        var name = box.dataset.name;
+        var price = parseFloat(box.dataset.price);
+        total += price;
+        lines.push(`• ${name} ($${price.toFixed(2)})`);
+      });
+
+      lines.push("");
+      lines.push(`Order Total: $${total.toFixed(2)}`);
+      lines.push("Thank you! 🍕");
+
+      var textArea = document.getElementById("text-order");
+      textArea.value = lines.join("\n");
+      textArea.style.display = "block";
+      document.getElementById("copy-btn").style.display = "block";
+      textArea.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function copyOrder() {
+      var textArea = document.getElementById("text-order");
+      var copyBtn = document.getElementById("copy-btn");
+
+      textArea.select();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(textArea.value).then(function() {
+          copyBtn.textContent = "✓ Copied! Paste it into your texts.";
+          setTimeout(function() {
+            copyBtn.textContent = "Copy to Clipboard";
+          }, 3000);
+        });
+      } else {
+        document.execCommand("copy");
+        copyBtn.textContent = "✓ Copied!";
+        setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+      }
+    }
+
+    function clearOrder() {
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+        box.checked = false;
+      });
+      updateOrder();
+    }
+
+    // Attach updateOrder to every checkbox
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+      box.addEventListener("change", updateOrder);
+    });
+  </script>
+
+</body>
+</html>

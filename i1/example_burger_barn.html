@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Barn</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial Black', 'Arial', sans-serif;
+      background-color: #f5f0e8;
+      color: #2c2c2c;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      background-color: #7b3f00;
+      color: white;
+      padding: 28px 16px;
+      border-radius: 16px 16px 0 0;
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .header-stripe {
+      background-color: #e74c3c;
+      height: 8px;
+      margin-bottom: 24px;
+    }
+
+    header .logo {
+      font-size: 58px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    header .tagline {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-top: 6px;
+      font-weight: normal;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ── Section headers ── */
+    h2 {
+      font-size: 18px;
+      font-weight: 900;
+      color: white;
+      background-color: #7b3f00;
+      padding: 8px 14px;
+      margin: 20px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── Category group ── */
+    .category-group {
+      background: white;
+      border: 2px solid #7b3f00;
+      border-top: none;
+      margin-bottom: 12px;
+    }
+
+    /* ── Menu items ── */
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0e8d8;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .menu-item:hover {
+      background-color: #fdf5e8;
+    }
+
+    .menu-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 14px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      accent-color: #7b3f00;
+      cursor: pointer;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .item-desc {
+      font-size: 13px;
+      color: #888;
+      margin-top: 3px;
+      font-family: Arial, sans-serif;
+      font-weight: normal;
+    }
+
+    .item-price {
+      font-weight: 900;
+      color: #7b3f00;
+      white-space: nowrap;
+      margin-left: 12px;
+      font-size: 16px;
+    }
+
+    /* ── Order section ── */
+    #order-section {
+      background-color: white;
+      border: 3px solid #7b3f00;
+      border-radius: 4px;
+      padding: 20px;
+      margin-top: 32px;
+    }
+
+    #order-section > h2 {
+      background: none;
+      color: #7b3f00;
+      padding: 0;
+      padding-bottom: 8px;
+      margin-top: 0;
+      margin-bottom: 14px;
+      border-bottom: 3px solid #7b3f00;
+    }
+
+    #order-list {
+      min-height: 40px;
+      margin-bottom: 14px;
+    }
+
+    .order-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px dotted #e0d0b8;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+      font-weight: normal;
+    }
+
+    .empty-msg {
+      color: #bbb;
+      font-style: italic;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      font-weight: normal;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 900;
+      padding-top: 12px;
+      margin-top: 6px;
+      border-top: 3px solid #7b3f00;
+    }
+
+    /* ── Buttons ── */
+    .big-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .big-btn:active {
+      transform: scale(0.98);
+    }
+
+    .big-btn:hover {
+      opacity: 0.9;
+    }
+
+    #generate-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    #copy-btn {
+      background-color: #2980b9;
+      color: white;
+      display: none;
+    }
+
+    #clear-btn {
+      background-color: #bdc3c7;
+      color: #555;
+    }
+
+    /* ── Text output ── */
+    #text-order {
+      display: none;
+      width: 100%;
+      font-size: 15px;
+      font-family: monospace;
+      padding: 12px;
+      border-radius: 4px;
+      border: 2px solid #7b3f00;
+      background: #fdf5e8;
+      margin-top: 12px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #bbb;
+      margin-top: 40px;
+      padding-bottom: 20px;
+      font-family: Arial, sans-serif;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="logo">🍔</span>
+    <h1>Burger Barn</h1>
+    <p class="tagline">Hand-pressed patties · Never frozen · (555) 287-4376</p>
+  </header>
+  <div class="header-stripe"></div>
+
+  <!-- BURGERS -->
+  <h2>🍔 Burgers</h2>
+  <div class="category-group">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Classic Smash Burger" data-price="8.99">
+      <div class="item-info">
+        <div class="item-name">Classic Smash Burger</div>
+        <div class="item-desc">Single patty, American cheese, pickles, secret sauce</div>
+      </div>
+      <span class="item-price">$8.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Double Double Burger" data-price="11.99">
+      <div class="item-info">
+        <div class="item-name">Double Double</div>
+        <div class="item-desc">Two patties, two slices of cheese, grilled onions, lettuce, tomato</div>
+      </div>
+      <span class="item-price">$11.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="BBQ Bacon Burger" data-price="12.99">
+      <div class="item-info">
+        <div class="item-name">BBQ Bacon</div>
+        <div class="item-desc">Smoky BBQ sauce, crispy bacon, cheddar, crispy onion strings</div>
+      </div>
+      <span class="item-price">$12.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Mushroom Swiss Burger" data-price="11.49">
+      <div class="item-info">
+        <div class="item-name">Mushroom Swiss</div>
+        <div class="item-desc">Sautéed mushrooms, Swiss cheese, garlic aioli</div>
+      </div>
+      <span class="item-price">$11.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Veggie Burger" data-price="9.99">
+      <div class="item-info">
+        <div class="item-name">Veggie Burger</div>
+        <div class="item-desc">House-made black bean patty, avocado, sprouts, chipotle mayo</div>
+      </div>
+      <span class="item-price">$9.99</span>
+    </label>
+  </div>
+
+  <!-- SIDES -->
+  <h2>🍟 Sides</h2>
+  <div class="category-group">
+    <label class="menu-item">
+      <input type="checkbox" data-name="French Fries" data-price="3.99">
+      <div class="item-info">
+        <div class="item-name">French Fries</div>
+        <div class="item-desc">Crispy, skin-on, seasoned with sea salt</div>
+      </div>
+      <span class="item-price">$3.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Onion Rings" data-price="4.49">
+      <div class="item-info">
+        <div class="item-name">Onion Rings</div>
+        <div class="item-desc">Thick-cut, beer-battered, with ranch dip</div>
+      </div>
+      <span class="item-price">$4.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Sweet Potato Fries" data-price="4.49">
+      <div class="item-info">
+        <div class="item-name">Sweet Potato Fries</div>
+        <div class="item-desc">Lightly seasoned, served with honey mustard</div>
+      </div>
+      <span class="item-price">$4.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Side Salad" data-price="4.99">
+      <div class="item-info">
+        <div class="item-name">Side Salad</div>
+        <div class="item-desc">Mixed greens, cherry tomatoes, choice of dressing</div>
+      </div>
+      <span class="item-price">$4.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Coleslaw" data-price="2.99">
+      <div class="item-info">
+        <div class="item-name">Coleslaw</div>
+        <div class="item-desc">Classic creamy style, made fresh daily</div>
+      </div>
+      <span class="item-price">$2.99</span>
+    </label>
+  </div>
+
+  <!-- SHAKES -->
+  <h2>🥤 Shakes</h2>
+  <div class="category-group">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Vanilla Shake" data-price="5.99">
+      <div class="item-info">
+        <div class="item-name">Vanilla Shake</div>
+        <div class="item-desc">House-made vanilla ice cream, whole milk, whipped cream</div>
+      </div>
+      <span class="item-price">$5.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Chocolate Shake" data-price="5.99">
+      <div class="item-info">
+        <div class="item-name">Chocolate Shake</div>
+        <div class="item-desc">Chocolate ice cream, chocolate syrup, whipped cream</div>
+      </div>
+      <span class="item-price">$5.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Strawberry Shake" data-price="5.99">
+      <div class="item-info">
+        <div class="item-name">Strawberry Shake</div>
+        <div class="item-desc">Fresh strawberries blended in, whipped cream</div>
+      </div>
+      <span class="item-price">$5.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Salted Caramel Shake" data-price="6.49">
+      <div class="item-info">
+        <div class="item-name">Salted Caramel Shake</div>
+        <div class="item-desc">Caramel swirl, pretzel bits on top</div>
+      </div>
+      <span class="item-price">$6.49</span>
+    </label>
+  </div>
+
+  <!-- DRINKS -->
+  <h2>🧃 Drinks</h2>
+  <div class="category-group">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Fountain Soda" data-price="2.49">
+      <div class="item-info">
+        <div class="item-name">Fountain Soda</div>
+        <div class="item-desc">Coke, Diet Coke, Sprite, Root Beer, Dr. Pepper</div>
+      </div>
+      <span class="item-price">$2.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Fresh Lemonade" data-price="3.49">
+      <div class="item-info">
+        <div class="item-name">Fresh Lemonade</div>
+        <div class="item-desc">Squeezed daily, not from concentrate</div>
+      </div>
+      <span class="item-price">$3.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Iced Tea" data-price="2.49">
+      <div class="item-info">
+        <div class="item-name">Iced Tea</div>
+        <div class="item-desc">Sweetened or unsweetened</div>
+      </div>
+      <span class="item-price">$2.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Bottled Water" data-price="1.99">
+      <div class="item-info">
+        <div class="item-name">Bottled Water</div>
+      </div>
+      <span class="item-price">$1.99</span>
+    </label>
+  </div>
+
+  <!-- DESSERTS -->
+  <h2>🍦 Desserts</h2>
+  <div class="category-group">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Soft Serve Cone" data-price="3.49">
+      <div class="item-info">
+        <div class="item-name">Soft Serve Cone</div>
+        <div class="item-desc">Vanilla or chocolate swirl, cake or sugar cone</div>
+      </div>
+      <span class="item-price">$3.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Banana Split" data-price="7.99">
+      <div class="item-info">
+        <div class="item-name">Banana Split</div>
+        <div class="item-desc">Three scoops, hot fudge, strawberry, pineapple, whipped cream</div>
+      </div>
+      <span class="item-price">$7.99</span>
+    </label>
+  </div>
+
+  <!-- ORDER SECTION -->
+  <div id="order-section">
+    <h2>🛒 Your Order</h2>
+    <div id="order-list">
+      <p class="empty-msg">Select items above to start building your order.</p>
+    </div>
+    <div class="total-row">
+      <span>Total</span>
+      <span id="total">$0.00</span>
+    </div>
+
+    <button class="big-btn" id="generate-btn" onclick="generateTextOrder()">
+      📱 Create My Text Order
+    </button>
+    <textarea id="text-order" rows="11"></textarea>
+    <button class="big-btn" id="copy-btn" onclick="copyOrder()">
+      Copy to Clipboard
+    </button>
+    <button class="big-btn" id="clear-btn" onclick="clearOrder()">
+      Clear Order
+    </button>
+  </div>
+
+  <footer>
+    Burger Barn · 789 Ranch Road · (555) 287-4376 · Open Mon–Sun 11am–11pm
+  </footer>
+
+  <script>
+    function updateOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+      var orderList = document.getElementById("order-list");
+      var totalDisplay = document.getElementById("total");
+      var total = 0;
+      var html = "";
+
+      if (checked.length === 0) {
+        html = '<p class="empty-msg">Select items above to start building your order.</p>';
+      } else {
+        checked.forEach(function(box) {
+          var name = box.dataset.name;
+          var price = parseFloat(box.dataset.price);
+          total += price;
+          html += `<div class="order-line"><span>${name}</span><span>$${price.toFixed(2)}</span></div>`;
+        });
+      }
+
+      orderList.innerHTML = html;
+      totalDisplay.textContent = "$" + total.toFixed(2);
+
+      document.getElementById("text-order").style.display = "none";
+      document.getElementById("copy-btn").style.display = "none";
+      document.getElementById("copy-btn").textContent = "Copy to Clipboard";
+    }
+
+    function generateTextOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      if (checked.length === 0) {
+        alert("Please select some items first!");
+        return;
+      }
+
+      var total = 0;
+      var lines = ["Hi! I'd like to place an order from Burger Barn:", ""];
+
+      checked.forEach(function(box) {
+        var name = box.dataset.name;
+        var price = parseFloat(box.dataset.price);
+        total += price;
+        lines.push(`• ${name} ($${price.toFixed(2)})`);
+      });
+
+      lines.push("");
+      lines.push(`Order Total: $${total.toFixed(2)}`);
+      lines.push("Thanks! 🍔");
+
+      var textArea = document.getElementById("text-order");
+      textArea.value = lines.join("\n");
+      textArea.style.display = "block";
+      document.getElementById("copy-btn").style.display = "block";
+      textArea.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function copyOrder() {
+      var textArea = document.getElementById("text-order");
+      var copyBtn = document.getElementById("copy-btn");
+
+      textArea.select();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(textArea.value).then(function() {
+          copyBtn.textContent = "✓ Copied! Paste it into your texts.";
+          setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+        });
+      } else {
+        document.execCommand("copy");
+        copyBtn.textContent = "✓ Copied!";
+        setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+      }
+    }
+
+    function clearOrder() {
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+        box.checked = false;
+      });
+      updateOrder();
+    }
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+      box.addEventListener("change", updateOrder);
+    });
+  </script>
+
+</body>
+</html>

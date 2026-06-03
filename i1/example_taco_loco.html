@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taco Loco</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fffbf0;
+      color: #2c2c2c;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, #e67e22, #f39c12);
+      color: white;
+      padding: 28px 16px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+    }
+
+    header .logo {
+      font-size: 60px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header .tagline {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ── Section headers ── */
+    h2 {
+      font-size: 19px;
+      font-weight: 900;
+      color: #e67e22;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-left: 5px solid #e67e22;
+      padding-left: 10px;
+      margin: 26px 0 12px;
+    }
+
+    /* ── Menu items ── */
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 12px 10px;
+      border-bottom: 1px solid #fce8c9;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.15s;
+    }
+
+    .menu-item:hover {
+      background-color: #fff3e0;
+    }
+
+    .menu-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .menu-item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-right: 14px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      accent-color: #e67e22;
+      cursor: pointer;
+    }
+
+    .item-info {
+      flex: 1;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .item-desc {
+      font-size: 13px;
+      color: #888;
+      margin-top: 3px;
+    }
+
+    .item-price {
+      font-weight: bold;
+      color: #e67e22;
+      white-space: nowrap;
+      margin-left: 12px;
+      font-size: 16px;
+    }
+
+    /* ── Category card ── */
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      padding: 4px 0;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* ── Order section ── */
+    #order-section {
+      background-color: white;
+      border: 2px solid #e67e22;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 32px;
+      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
+    }
+
+    #order-section h2 {
+      border-left: none;
+      border-bottom: 2px solid #f39c12;
+      padding-left: 0;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    #order-list {
+      min-height: 40px;
+      margin-bottom: 14px;
+    }
+
+    .order-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px dashed #fce8c9;
+      font-size: 15px;
+    }
+
+    .empty-msg {
+      color: #bbb;
+      font-style: italic;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 19px;
+      font-weight: bold;
+      padding-top: 12px;
+      margin-top: 4px;
+      border-top: 2px solid #e67e22;
+      color: #e67e22;
+    }
+
+    /* ── Buttons ── */
+    .big-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .big-btn:active {
+      transform: scale(0.98);
+    }
+
+    .big-btn:hover {
+      opacity: 0.9;
+    }
+
+    #generate-btn {
+      background-color: #27ae60;
+      color: white;
+    }
+
+    #copy-btn {
+      background-color: #2980b9;
+      color: white;
+      display: none;
+    }
+
+    #clear-btn {
+      background-color: #bdc3c7;
+      color: #555;
+    }
+
+    /* ── Text output ── */
+    #text-order {
+      display: none;
+      width: 100%;
+      font-size: 15px;
+      font-family: monospace;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px dashed #f39c12;
+      background: #fffbf0;
+      margin-top: 12px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="logo">🌮</span>
+    <h1>Taco Loco</h1>
+    <p class="tagline">Authentic flavors · Order now · (555) 826-2267</p>
+  </header>
+
+  <!-- TACOS -->
+  <h2>🌮 Tacos</h2>
+  <div class="category-card">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Chicken Taco" data-price="3.99">
+      <div class="item-info">
+        <div class="item-name">Chicken Taco</div>
+        <div class="item-desc">Grilled chicken, cilantro, onion, salsa verde</div>
+      </div>
+      <span class="item-price">$3.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Carne Asada Taco" data-price="4.99">
+      <div class="item-info">
+        <div class="item-name">Carne Asada Taco</div>
+        <div class="item-desc">Grilled steak, pico de gallo, lime</div>
+      </div>
+      <span class="item-price">$4.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Veggie Taco" data-price="3.49">
+      <div class="item-info">
+        <div class="item-name">Veggie Taco</div>
+        <div class="item-desc">Black beans, roasted peppers, avocado, cheese</div>
+      </div>
+      <span class="item-price">$3.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Fish Taco" data-price="4.49">
+      <div class="item-info">
+        <div class="item-name">Fish Taco</div>
+        <div class="item-desc">Beer-battered tilapia, cabbage slaw, chipotle crema</div>
+      </div>
+      <span class="item-price">$4.49</span>
+    </label>
+  </div>
+
+  <!-- BURRITOS -->
+  <h2>🌯 Burritos</h2>
+  <div class="category-card">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Bean & Cheese Burrito" data-price="8.99">
+      <div class="item-info">
+        <div class="item-name">Bean &amp; Cheese</div>
+        <div class="item-desc">Refried beans, cheddar, sour cream, rice</div>
+      </div>
+      <span class="item-price">$8.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Chicken Supreme Burrito" data-price="10.99">
+      <div class="item-info">
+        <div class="item-name">Chicken Supreme</div>
+        <div class="item-desc">Grilled chicken, beans, rice, cheese, pico, sour cream</div>
+      </div>
+      <span class="item-price">$10.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Steak & Guac Burrito" data-price="12.99">
+      <div class="item-info">
+        <div class="item-name">Steak &amp; Guac</div>
+        <div class="item-desc">Carne asada, fresh guacamole, beans, cheese, rice</div>
+      </div>
+      <span class="item-price">$12.99</span>
+    </label>
+  </div>
+
+  <!-- SIDES -->
+  <h2>🫙 Sides</h2>
+  <div class="category-card">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Chips & Salsa" data-price="3.99">
+      <div class="item-info">
+        <div class="item-name">Chips &amp; Salsa</div>
+        <div class="item-desc">House-made tortilla chips, fresh salsa roja</div>
+      </div>
+      <span class="item-price">$3.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Fresh Guacamole" data-price="4.99">
+      <div class="item-info">
+        <div class="item-name">Fresh Guacamole</div>
+        <div class="item-desc">Avocado, lime, cilantro, jalapeño, served with chips</div>
+      </div>
+      <span class="item-price">$4.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Mexican Rice" data-price="2.99">
+      <div class="item-info">
+        <div class="item-name">Mexican Rice</div>
+        <div class="item-desc">Tomato-seasoned rice with vegetables</div>
+      </div>
+      <span class="item-price">$2.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Elote (Street Corn)" data-price="4.49">
+      <div class="item-info">
+        <div class="item-name">Elote (Street Corn)</div>
+        <div class="item-desc">Grilled corn, mayo, cotija cheese, chili powder</div>
+      </div>
+      <span class="item-price">$4.49</span>
+    </label>
+  </div>
+
+  <!-- DRINKS -->
+  <h2>🥤 Drinks</h2>
+  <div class="category-card">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Horchata" data-price="3.49">
+      <div class="item-info">
+        <div class="item-name">Horchata</div>
+        <div class="item-desc">Sweet rice milk with cinnamon and vanilla</div>
+      </div>
+      <span class="item-price">$3.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Jamaica (Hibiscus)" data-price="3.49">
+      <div class="item-info">
+        <div class="item-name">Jamaica (Hibiscus)</div>
+        <div class="item-desc">Refreshing cold hibiscus tea, lightly sweetened</div>
+      </div>
+      <span class="item-price">$3.49</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Mexican Coke" data-price="3.99">
+      <div class="item-info">
+        <div class="item-name">Mexican Coke</div>
+        <div class="item-desc">Glass bottle, made with cane sugar</div>
+      </div>
+      <span class="item-price">$3.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Agua Fresca" data-price="2.99">
+      <div class="item-info">
+        <div class="item-name">Agua Fresca</div>
+        <div class="item-desc">Ask about today's flavor</div>
+      </div>
+      <span class="item-price">$2.99</span>
+    </label>
+  </div>
+
+  <!-- DESSERTS -->
+  <h2>🍮 Desserts</h2>
+  <div class="category-card">
+    <label class="menu-item">
+      <input type="checkbox" data-name="Churros" data-price="4.99">
+      <div class="item-info">
+        <div class="item-name">Churros</div>
+        <div class="item-desc">Fried dough, cinnamon sugar, chocolate dipping sauce</div>
+      </div>
+      <span class="item-price">$4.99</span>
+    </label>
+
+    <label class="menu-item">
+      <input type="checkbox" data-name="Flan" data-price="5.49">
+      <div class="item-info">
+        <div class="item-name">Flan</div>
+        <div class="item-desc">Creamy caramel custard, made fresh daily</div>
+      </div>
+      <span class="item-price">$5.49</span>
+    </label>
+  </div>
+
+  <!-- ORDER SECTION -->
+  <div id="order-section">
+    <h2>🛒 Your Order</h2>
+    <div id="order-list">
+      <p class="empty-msg">Tap items above to start your order!</p>
+    </div>
+    <div class="total-row">
+      <span>Total</span>
+      <span id="total">$0.00</span>
+    </div>
+
+    <button class="big-btn" id="generate-btn" onclick="generateTextOrder()">
+      📱 Create My Text Order
+    </button>
+    <textarea id="text-order" rows="11"></textarea>
+    <button class="big-btn" id="copy-btn" onclick="copyOrder()">
+      Copy to Clipboard
+    </button>
+    <button class="big-btn" id="clear-btn" onclick="clearOrder()">
+      Clear Order
+    </button>
+  </div>
+
+  <footer>
+    Taco Loco · 456 Avenida Del Sol · (555) 826-2267 · Open 11am–10pm daily
+  </footer>
+
+  <script>
+    function updateOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+      var orderList = document.getElementById("order-list");
+      var totalDisplay = document.getElementById("total");
+      var total = 0;
+      var html = "";
+
+      if (checked.length === 0) {
+        html = '<p class="empty-msg">Tap items above to start your order!</p>';
+      } else {
+        checked.forEach(function(box) {
+          var name = box.dataset.name;
+          var price = parseFloat(box.dataset.price);
+          total += price;
+          html += `<div class="order-line"><span>${name}</span><span>$${price.toFixed(2)}</span></div>`;
+        });
+      }
+
+      orderList.innerHTML = html;
+      totalDisplay.textContent = "$" + total.toFixed(2);
+
+      document.getElementById("text-order").style.display = "none";
+      document.getElementById("copy-btn").style.display = "none";
+      document.getElementById("copy-btn").textContent = "Copy to Clipboard";
+    }
+
+    function generateTextOrder() {
+      var checked = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      if (checked.length === 0) {
+        alert("Please select some items first!");
+        return;
+      }
+
+      var total = 0;
+      var lines = ["Hola! I'd like to order from Taco Loco:", ""];
+
+      checked.forEach(function(box) {
+        var name = box.dataset.name;
+        var price = parseFloat(box.dataset.price);
+        total += price;
+        lines.push(`• ${name} ($${price.toFixed(2)})`);
+      });
+
+      lines.push("");
+      lines.push(`Order Total: $${total.toFixed(2)}`);
+      lines.push("¡Gracias! 🌮");
+
+      var textArea = document.getElementById("text-order");
+      textArea.value = lines.join("\n");
+      textArea.style.display = "block";
+      document.getElementById("copy-btn").style.display = "block";
+      textArea.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function copyOrder() {
+      var textArea = document.getElementById("text-order");
+      var copyBtn = document.getElementById("copy-btn");
+
+      textArea.select();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(textArea.value).then(function() {
+          copyBtn.textContent = "✓ Copied! Paste it into your texts.";
+          setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+        });
+      } else {
+        document.execCommand("copy");
+        copyBtn.textContent = "✓ Copied!";
+        setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+      }
+    }
+
+    function clearOrder() {
+      document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+        box.checked = false;
+      });
+      updateOrder();
+    }
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+      box.addEventListener("change", updateOrder);
+    });
+  </script>
+
+</body>
+</html>
