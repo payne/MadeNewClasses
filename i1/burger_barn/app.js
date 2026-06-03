@@ -1,8 +1,16 @@
-const STORAGE_KEY = 'burger_barn_data';
-const DATA_URL = 'data.json';
-let menuData = null;
+export const STORAGE_KEY = 'burger_barn_data';
+export const DATA_URL = 'data.json';
+export let menuData = null;
 
-async function loadData() {
+export function setMenuData(data) {
+  menuData = data;
+}
+
+export function getMenuData() {
+  return menuData;
+}
+
+export async function loadData() {
   const cached = localStorage.getItem(STORAGE_KEY);
   if (cached) {
     try {
@@ -17,7 +25,7 @@ async function loadData() {
   await fetchAndCache();
 }
 
-async function fetchAndCache() {
+export async function fetchAndCache() {
   try {
     const response = await fetch(DATA_URL);
     if (!response.ok) throw new Error('Failed to load menu data');
@@ -33,7 +41,7 @@ async function fetchAndCache() {
   }
 }
 
-function renderPage() {
+export function renderPage() {
   const { restaurant, categories } = menuData;
 
   document.getElementById('header-logo').textContent = restaurant.logo;
@@ -95,7 +103,7 @@ function renderPage() {
   });
 }
 
-function updateOrder() {
+export function updateOrder() {
   const checked = document.querySelectorAll('input[type="checkbox"]:checked');
   const orderList = document.getElementById('order-list');
   const totalDisplay = document.getElementById('total');
@@ -121,12 +129,12 @@ function updateOrder() {
   document.getElementById('copy-btn').textContent = 'Copy to Clipboard';
 }
 
-function generateTextOrder() {
+export function generateTextOrder() {
   const checked = document.querySelectorAll('input[type="checkbox"]:checked');
 
   if (checked.length === 0) {
     alert('Please select some items first!');
-    return;
+    return null;
   }
 
   let total = 0;
@@ -148,9 +156,11 @@ function generateTextOrder() {
   textArea.style.display = 'block';
   document.getElementById('copy-btn').style.display = 'block';
   textArea.scrollIntoView({ behavior: 'smooth' });
+
+  return lines.join('\n');
 }
 
-function copyOrder() {
+export function copyOrder() {
   const textArea = document.getElementById('text-order');
   const copyBtn = document.getElementById('copy-btn');
 
@@ -167,11 +177,27 @@ function copyOrder() {
   }
 }
 
-function clearOrder() {
+export function clearOrder() {
   document.querySelectorAll('input[type="checkbox"]').forEach(box => {
     box.checked = false;
   });
   updateOrder();
 }
 
-document.addEventListener('DOMContentLoaded', loadData);
+export function calculateTotal(items) {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+
+export function formatPrice(price) {
+  return `$${price.toFixed(2)}`;
+}
+
+// Only add event listener in browser context
+if (typeof document !== 'undefined' && document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', loadData);
+
+  // Expose functions globally for onclick handlers
+  window.generateTextOrder = generateTextOrder;
+  window.copyOrder = copyOrder;
+  window.clearOrder = clearOrder;
+}
