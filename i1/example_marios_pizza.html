@@ -202,156 +202,34 @@
       margin-top: 40px;
       padding-bottom: 20px;
     }
+
+    /* ── Loading state ── */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #c0392b;
+      font-size: 18px;
+    }
+
+    .error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <span class="logo">🍕</span>
-    <h1>Mario's Pizza</h1>
-    <p>Fresh ingredients, made with love since 1987 · Call us at (555) 248-7299</p>
+    <span class="logo" id="header-logo">🍕</span>
+    <h1 id="header-name">Mario's Pizza</h1>
+    <p id="header-tagline">Loading...</p>
   </header>
 
-  <!-- APPETIZERS -->
-  <h2>Appetizers</h2>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Garlic Bread" data-price="4.99">
-    <div class="item-info">
-      <div class="item-name">Garlic Bread</div>
-      <div class="item-desc">Toasted baguette with herb butter</div>
-    </div>
-    <span class="item-price">$4.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Bruschetta" data-price="6.99">
-    <div class="item-info">
-      <div class="item-name">Bruschetta</div>
-      <div class="item-desc">Tomatoes, basil, olive oil on toasted bread</div>
-    </div>
-    <span class="item-price">$6.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Mozzarella Sticks" data-price="7.99">
-    <div class="item-info">
-      <div class="item-name">Mozzarella Sticks</div>
-      <div class="item-desc">Fried golden, served with marinara</div>
-    </div>
-    <span class="item-price">$7.99</span>
-  </label>
-
-  <!-- PIZZAS -->
-  <h2>Pizzas</h2>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Margherita Pizza" data-price="11.99">
-    <div class="item-info">
-      <div class="item-name">Margherita</div>
-      <div class="item-desc">San Marzano tomato, fresh mozzarella, basil</div>
-    </div>
-    <span class="item-price">$11.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Pepperoni Pizza" data-price="13.99">
-    <div class="item-info">
-      <div class="item-name">Pepperoni</div>
-      <div class="item-desc">Classic red sauce, mozzarella, pepperoni</div>
-    </div>
-    <span class="item-price">$13.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Veggie Supreme Pizza" data-price="12.99">
-    <div class="item-info">
-      <div class="item-name">Veggie Supreme</div>
-      <div class="item-desc">Mushrooms, peppers, onions, olives, spinach</div>
-    </div>
-    <span class="item-price">$12.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Meat Lovers Pizza" data-price="15.99">
-    <div class="item-info">
-      <div class="item-name">Meat Lovers</div>
-      <div class="item-desc">Pepperoni, sausage, meatballs, ham, bacon</div>
-    </div>
-    <span class="item-price">$15.99</span>
-  </label>
-
-  <!-- PASTA -->
-  <h2>Pasta</h2>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Spaghetti & Meatballs" data-price="12.99">
-    <div class="item-info">
-      <div class="item-name">Spaghetti &amp; Meatballs</div>
-      <div class="item-desc">House-made tomato sauce, three large meatballs</div>
-    </div>
-    <span class="item-price">$12.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Fettuccine Alfredo" data-price="11.99">
-    <div class="item-info">
-      <div class="item-name">Fettuccine Alfredo</div>
-      <div class="item-desc">Creamy parmesan sauce, fresh pasta</div>
-    </div>
-    <span class="item-price">$11.99</span>
-  </label>
-
-  <!-- DRINKS -->
-  <h2>Drinks</h2>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Fountain Soda" data-price="2.99">
-    <div class="item-info">
-      <div class="item-name">Fountain Soda</div>
-      <div class="item-desc">Coke, Diet Coke, Sprite, Root Beer</div>
-    </div>
-    <span class="item-price">$2.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Sparkling Water" data-price="3.49">
-    <div class="item-info">
-      <div class="item-name">Sparkling Water</div>
-      <div class="item-desc">San Pellegrino</div>
-    </div>
-    <span class="item-price">$3.49</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Lemonade" data-price="3.49">
-    <div class="item-info">
-      <div class="item-name">Lemonade</div>
-      <div class="item-desc">Fresh-squeezed with mint</div>
-    </div>
-    <span class="item-price">$3.49</span>
-  </label>
-
-  <!-- DESSERTS -->
-  <h2>Desserts</h2>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Tiramisu" data-price="6.99">
-    <div class="item-info">
-      <div class="item-name">Tiramisu</div>
-      <div class="item-desc">Classic Italian, dusted with cocoa powder</div>
-    </div>
-    <span class="item-price">$6.99</span>
-  </label>
-
-  <label class="menu-item">
-    <input type="checkbox" data-name="Cannoli" data-price="5.99">
-    <div class="item-info">
-      <div class="item-name">Cannoli</div>
-      <div class="item-desc">Crispy shell, sweet ricotta filling</div>
-    </div>
-    <span class="item-price">$5.99</span>
-  </label>
+  <div id="menu-container">
+    <p class="loading">Loading menu...</p>
+  </div>
 
   <!-- ORDER SECTION -->
   <div id="order-section">
@@ -376,11 +254,110 @@
     </button>
   </div>
 
-  <footer>
-    Mario's Pizza · 123 Main Street · (555) 248-7299
+  <footer id="footer">
+    Loading...
   </footer>
 
   <script>
+    const STORAGE_KEY = 'marios_pizza_data';
+    const DATA_URL = 'data/marios_pizza.json';
+    let menuData = null;
+
+    async function loadData() {
+      // Check localStorage first
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) {
+        try {
+          menuData = JSON.parse(cached);
+          renderPage();
+          // Fetch fresh data in background to update cache
+          fetchAndCache();
+          return;
+        } catch (e) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+
+      // Fetch from server
+      await fetchAndCache();
+    }
+
+    async function fetchAndCache() {
+      try {
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error('Failed to load menu data');
+        menuData = await response.json();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(menuData));
+        renderPage();
+      } catch (error) {
+        if (!menuData) {
+          document.getElementById('menu-container').innerHTML =
+            '<p class="error">Unable to load menu. Please refresh the page.</p>';
+        }
+        console.error('Error loading data:', error);
+      }
+    }
+
+    function renderPage() {
+      const { restaurant, categories } = menuData;
+
+      // Update header
+      document.getElementById('header-logo').textContent = restaurant.logo;
+      document.getElementById('header-name').textContent = restaurant.name;
+      document.getElementById('header-tagline').textContent =
+        `${restaurant.tagline} · Call us at ${restaurant.phone}`;
+
+      // Update footer
+      const footerParts = [restaurant.name, restaurant.address, restaurant.phone];
+      if (restaurant.hours) footerParts.push(restaurant.hours);
+      document.getElementById('footer').textContent = footerParts.join(' · ');
+
+      // Render menu
+      const container = document.getElementById('menu-container');
+      container.innerHTML = '';
+
+      categories.forEach(category => {
+        const header = document.createElement('h2');
+        header.textContent = category.icon ? `${category.icon} ${category.name}` : category.name;
+        container.appendChild(header);
+
+        category.items.forEach(item => {
+          const label = document.createElement('label');
+          label.className = 'menu-item';
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.dataset.name = item.name;
+          checkbox.dataset.price = item.price;
+          checkbox.addEventListener('change', updateOrder);
+
+          const info = document.createElement('div');
+          info.className = 'item-info';
+
+          const nameDiv = document.createElement('div');
+          nameDiv.className = 'item-name';
+          nameDiv.textContent = item.displayName || item.name;
+          info.appendChild(nameDiv);
+
+          if (item.description) {
+            const descDiv = document.createElement('div');
+            descDiv.className = 'item-desc';
+            descDiv.textContent = item.description;
+            info.appendChild(descDiv);
+          }
+
+          const priceSpan = document.createElement('span');
+          priceSpan.className = 'item-price';
+          priceSpan.textContent = `$${item.price.toFixed(2)}`;
+
+          label.appendChild(checkbox);
+          label.appendChild(info);
+          label.appendChild(priceSpan);
+          container.appendChild(label);
+        });
+      });
+    }
+
     function updateOrder() {
       var checked = document.querySelectorAll('input[type="checkbox"]:checked');
       var orderList = document.getElementById("order-list");
@@ -417,7 +394,7 @@
       }
 
       var total = 0;
-      var lines = ["Hi! I'd like to place a pickup order from Mario's Pizza:", ""];
+      var lines = [menuData.restaurant.orderGreeting, ""];
 
       checked.forEach(function(box) {
         var name = box.dataset.name;
@@ -428,7 +405,7 @@
 
       lines.push("");
       lines.push(`Order Total: $${total.toFixed(2)}`);
-      lines.push("Thank you! 🍕");
+      lines.push(menuData.restaurant.orderThanks);
 
       var textArea = document.getElementById("text-order");
       textArea.value = lines.join("\n");
@@ -463,10 +440,8 @@
       updateOrder();
     }
 
-    // Attach updateOrder to every checkbox
-    document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
-      box.addEventListener("change", updateOrder);
-    });
+    // Initialize
+    loadData();
   </script>
 
 </body>

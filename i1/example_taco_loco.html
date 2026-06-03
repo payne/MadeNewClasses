@@ -234,187 +234,33 @@
       margin-top: 40px;
       padding-bottom: 20px;
     }
+
+    /* ── Loading state ── */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #e67e22;
+      font-size: 18px;
+    }
+
+    .error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <span class="logo">🌮</span>
-    <h1>Taco Loco</h1>
-    <p class="tagline">Authentic flavors · Order now · (555) 826-2267</p>
+    <span class="logo" id="header-logo">🌮</span>
+    <h1 id="header-name">Taco Loco</h1>
+    <p class="tagline" id="header-tagline">Loading...</p>
   </header>
 
-  <!-- TACOS -->
-  <h2>🌮 Tacos</h2>
-  <div class="category-card">
-    <label class="menu-item">
-      <input type="checkbox" data-name="Chicken Taco" data-price="3.99">
-      <div class="item-info">
-        <div class="item-name">Chicken Taco</div>
-        <div class="item-desc">Grilled chicken, cilantro, onion, salsa verde</div>
-      </div>
-      <span class="item-price">$3.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Carne Asada Taco" data-price="4.99">
-      <div class="item-info">
-        <div class="item-name">Carne Asada Taco</div>
-        <div class="item-desc">Grilled steak, pico de gallo, lime</div>
-      </div>
-      <span class="item-price">$4.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Veggie Taco" data-price="3.49">
-      <div class="item-info">
-        <div class="item-name">Veggie Taco</div>
-        <div class="item-desc">Black beans, roasted peppers, avocado, cheese</div>
-      </div>
-      <span class="item-price">$3.49</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Fish Taco" data-price="4.49">
-      <div class="item-info">
-        <div class="item-name">Fish Taco</div>
-        <div class="item-desc">Beer-battered tilapia, cabbage slaw, chipotle crema</div>
-      </div>
-      <span class="item-price">$4.49</span>
-    </label>
-  </div>
-
-  <!-- BURRITOS -->
-  <h2>🌯 Burritos</h2>
-  <div class="category-card">
-    <label class="menu-item">
-      <input type="checkbox" data-name="Bean & Cheese Burrito" data-price="8.99">
-      <div class="item-info">
-        <div class="item-name">Bean &amp; Cheese</div>
-        <div class="item-desc">Refried beans, cheddar, sour cream, rice</div>
-      </div>
-      <span class="item-price">$8.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Chicken Supreme Burrito" data-price="10.99">
-      <div class="item-info">
-        <div class="item-name">Chicken Supreme</div>
-        <div class="item-desc">Grilled chicken, beans, rice, cheese, pico, sour cream</div>
-      </div>
-      <span class="item-price">$10.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Steak & Guac Burrito" data-price="12.99">
-      <div class="item-info">
-        <div class="item-name">Steak &amp; Guac</div>
-        <div class="item-desc">Carne asada, fresh guacamole, beans, cheese, rice</div>
-      </div>
-      <span class="item-price">$12.99</span>
-    </label>
-  </div>
-
-  <!-- SIDES -->
-  <h2>🫙 Sides</h2>
-  <div class="category-card">
-    <label class="menu-item">
-      <input type="checkbox" data-name="Chips & Salsa" data-price="3.99">
-      <div class="item-info">
-        <div class="item-name">Chips &amp; Salsa</div>
-        <div class="item-desc">House-made tortilla chips, fresh salsa roja</div>
-      </div>
-      <span class="item-price">$3.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Fresh Guacamole" data-price="4.99">
-      <div class="item-info">
-        <div class="item-name">Fresh Guacamole</div>
-        <div class="item-desc">Avocado, lime, cilantro, jalapeño, served with chips</div>
-      </div>
-      <span class="item-price">$4.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Mexican Rice" data-price="2.99">
-      <div class="item-info">
-        <div class="item-name">Mexican Rice</div>
-        <div class="item-desc">Tomato-seasoned rice with vegetables</div>
-      </div>
-      <span class="item-price">$2.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Elote (Street Corn)" data-price="4.49">
-      <div class="item-info">
-        <div class="item-name">Elote (Street Corn)</div>
-        <div class="item-desc">Grilled corn, mayo, cotija cheese, chili powder</div>
-      </div>
-      <span class="item-price">$4.49</span>
-    </label>
-  </div>
-
-  <!-- DRINKS -->
-  <h2>🥤 Drinks</h2>
-  <div class="category-card">
-    <label class="menu-item">
-      <input type="checkbox" data-name="Horchata" data-price="3.49">
-      <div class="item-info">
-        <div class="item-name">Horchata</div>
-        <div class="item-desc">Sweet rice milk with cinnamon and vanilla</div>
-      </div>
-      <span class="item-price">$3.49</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Jamaica (Hibiscus)" data-price="3.49">
-      <div class="item-info">
-        <div class="item-name">Jamaica (Hibiscus)</div>
-        <div class="item-desc">Refreshing cold hibiscus tea, lightly sweetened</div>
-      </div>
-      <span class="item-price">$3.49</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Mexican Coke" data-price="3.99">
-      <div class="item-info">
-        <div class="item-name">Mexican Coke</div>
-        <div class="item-desc">Glass bottle, made with cane sugar</div>
-      </div>
-      <span class="item-price">$3.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Agua Fresca" data-price="2.99">
-      <div class="item-info">
-        <div class="item-name">Agua Fresca</div>
-        <div class="item-desc">Ask about today's flavor</div>
-      </div>
-      <span class="item-price">$2.99</span>
-    </label>
-  </div>
-
-  <!-- DESSERTS -->
-  <h2>🍮 Desserts</h2>
-  <div class="category-card">
-    <label class="menu-item">
-      <input type="checkbox" data-name="Churros" data-price="4.99">
-      <div class="item-info">
-        <div class="item-name">Churros</div>
-        <div class="item-desc">Fried dough, cinnamon sugar, chocolate dipping sauce</div>
-      </div>
-      <span class="item-price">$4.99</span>
-    </label>
-
-    <label class="menu-item">
-      <input type="checkbox" data-name="Flan" data-price="5.49">
-      <div class="item-info">
-        <div class="item-name">Flan</div>
-        <div class="item-desc">Creamy caramel custard, made fresh daily</div>
-      </div>
-      <span class="item-price">$5.49</span>
-    </label>
+  <div id="menu-container">
+    <p class="loading">Loading menu...</p>
   </div>
 
   <!-- ORDER SECTION -->
@@ -440,11 +286,115 @@
     </button>
   </div>
 
-  <footer>
-    Taco Loco · 456 Avenida Del Sol · (555) 826-2267 · Open 11am–10pm daily
+  <footer id="footer">
+    Loading...
   </footer>
 
   <script>
+    const STORAGE_KEY = 'taco_loco_data';
+    const DATA_URL = 'data/taco_loco.json';
+    let menuData = null;
+
+    async function loadData() {
+      // Check localStorage first
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) {
+        try {
+          menuData = JSON.parse(cached);
+          renderPage();
+          // Fetch fresh data in background to update cache
+          fetchAndCache();
+          return;
+        } catch (e) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+
+      // Fetch from server
+      await fetchAndCache();
+    }
+
+    async function fetchAndCache() {
+      try {
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error('Failed to load menu data');
+        menuData = await response.json();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(menuData));
+        renderPage();
+      } catch (error) {
+        if (!menuData) {
+          document.getElementById('menu-container').innerHTML =
+            '<p class="error">Unable to load menu. Please refresh the page.</p>';
+        }
+        console.error('Error loading data:', error);
+      }
+    }
+
+    function renderPage() {
+      const { restaurant, categories } = menuData;
+
+      // Update header
+      document.getElementById('header-logo').textContent = restaurant.logo;
+      document.getElementById('header-name').textContent = restaurant.name;
+      document.getElementById('header-tagline').textContent =
+        `${restaurant.tagline} · ${restaurant.phone}`;
+
+      // Update footer
+      const footerParts = [restaurant.name, restaurant.address, restaurant.phone];
+      if (restaurant.hours) footerParts.push(restaurant.hours);
+      document.getElementById('footer').textContent = footerParts.join(' · ');
+
+      // Render menu
+      const container = document.getElementById('menu-container');
+      container.innerHTML = '';
+
+      categories.forEach(category => {
+        const header = document.createElement('h2');
+        header.textContent = category.icon ? `${category.icon} ${category.name}` : category.name;
+        container.appendChild(header);
+
+        const card = document.createElement('div');
+        card.className = 'category-card';
+
+        category.items.forEach(item => {
+          const label = document.createElement('label');
+          label.className = 'menu-item';
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.dataset.name = item.name;
+          checkbox.dataset.price = item.price;
+          checkbox.addEventListener('change', updateOrder);
+
+          const info = document.createElement('div');
+          info.className = 'item-info';
+
+          const nameDiv = document.createElement('div');
+          nameDiv.className = 'item-name';
+          nameDiv.textContent = item.displayName || item.name;
+          info.appendChild(nameDiv);
+
+          if (item.description) {
+            const descDiv = document.createElement('div');
+            descDiv.className = 'item-desc';
+            descDiv.textContent = item.description;
+            info.appendChild(descDiv);
+          }
+
+          const priceSpan = document.createElement('span');
+          priceSpan.className = 'item-price';
+          priceSpan.textContent = `$${item.price.toFixed(2)}`;
+
+          label.appendChild(checkbox);
+          label.appendChild(info);
+          label.appendChild(priceSpan);
+          card.appendChild(label);
+        });
+
+        container.appendChild(card);
+      });
+    }
+
     function updateOrder() {
       var checked = document.querySelectorAll('input[type="checkbox"]:checked');
       var orderList = document.getElementById("order-list");
@@ -480,7 +430,7 @@
       }
 
       var total = 0;
-      var lines = ["Hola! I'd like to order from Taco Loco:", ""];
+      var lines = [menuData.restaurant.orderGreeting, ""];
 
       checked.forEach(function(box) {
         var name = box.dataset.name;
@@ -491,7 +441,7 @@
 
       lines.push("");
       lines.push(`Order Total: $${total.toFixed(2)}`);
-      lines.push("¡Gracias! 🌮");
+      lines.push(menuData.restaurant.orderThanks);
 
       var textArea = document.getElementById("text-order");
       textArea.value = lines.join("\n");
@@ -524,9 +474,8 @@
       updateOrder();
     }
 
-    document.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
-      box.addEventListener("change", updateOrder);
-    });
+    // Initialize
+    loadData();
   </script>
 
 </body>

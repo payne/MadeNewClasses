@@ -1,0 +1,133 @@
+{
+  "restaurant": {
+    "name": "Taco Loco",
+    "phone": "(555) 826-2267",
+    "address": "456 Avenida Del Sol",
+    "tagline": "Authentic flavors · Order now",
+    "hours": "Open 11am–10pm daily",
+    "logo": "🌮",
+    "orderGreeting": "Hola! I'd like to order from Taco Loco:",
+    "orderThanks": "¡Gracias! 🌮"
+  },
+  "categories": [
+    {
+      "name": "Tacos",
+      "icon": "🌮",
+      "items": [
+        {
+          "name": "Chicken Taco",
+          "description": "Grilled chicken, cilantro, onion, salsa verde",
+          "price": 3.99
+        },
+        {
+          "name": "Carne Asada Taco",
+          "description": "Grilled steak, pico de gallo, lime",
+          "price": 4.99
+        },
+        {
+          "name": "Veggie Taco",
+          "description": "Black beans, roasted peppers, avocado, cheese",
+          "price": 3.49
+        },
+        {
+          "name": "Fish Taco",
+          "description": "Beer-battered tilapia, cabbage slaw, chipotle crema",
+          "price": 4.49
+        }
+      ]
+    },
+    {
+      "name": "Burritos",
+      "icon": "🌯",
+      "items": [
+        {
+          "name": "Bean & Cheese Burrito",
+          "displayName": "Bean & Cheese",
+          "description": "Refried beans, cheddar, sour cream, rice",
+          "price": 8.99
+        },
+        {
+          "name": "Chicken Supreme Burrito",
+          "displayName": "Chicken Supreme",
+          "description": "Grilled chicken, beans, rice, cheese, pico, sour cream",
+          "price": 10.99
+        },
+        {
+          "name": "Steak & Guac Burrito",
+          "displayName": "Steak & Guac",
+          "description": "Carne asada, fresh guacamole, beans, cheese, rice",
+          "price": 12.99
+        }
+      ]
+    },
+    {
+      "name": "Sides",
+      "icon": "🫙",
+      "items": [
+        {
+          "name": "Chips & Salsa",
+          "displayName": "Chips & Salsa",
+          "description": "House-made tortilla chips, fresh salsa roja",
+          "price": 3.99
+        },
+        {
+          "name": "Fresh Guacamole",
+          "description": "Avocado, lime, cilantro, jalapeño, served with chips",
+          "price": 4.99
+        },
+        {
+          "name": "Mexican Rice",
+          "description": "Tomato-seasoned rice with vegetables",
+          "price": 2.99
+        },
+        {
+          "name": "Elote (Street Corn)",
+          "description": "Grilled corn, mayo, cotija cheese, chili powder",
+          "price": 4.49
+        }
+      ]
+    },
+    {
+      "name": "Drinks",
+      "icon": "🥤",
+      "items": [
+        {
+          "name": "Horchata",
+          "description": "Sweet rice milk with cinnamon and vanilla",
+          "price": 3.49
+        },
+        {
+          "name": "Jamaica (Hibiscus)",
+          "description": "Refreshing cold hibiscus tea, lightly sweetened",
+          "price": 3.49
+        },
+        {
+          "name": "Mexican Coke",
+          "description": "Glass bottle, made with cane sugar",
+          "price": 3.99
+        },
+        {
+          "name": "Agua Fresca",
+          "description": "Ask about today's flavor",
+          "price": 2.99
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "icon": "🍮",
+      "items": [
+        {
+          "name": "Churros",
+          "description": "Fried dough, cinnamon sugar, chocolate dipping sauce",
+          "price": 4.99
+        },
+        {
+          "name": "Flan",
+          "description": "Creamy caramel custard, made fresh daily",
+          "price": 5.49
+        }
+      ]
+    }
+  ]
+}

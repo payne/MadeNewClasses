@@ -1,0 +1,147 @@
+{
+  "restaurant": {
+    "name": "Burger Barn",
+    "phone": "(555) 287-4376",
+    "address": "789 Ranch Road",
+    "tagline": "Hand-pressed patties · Never frozen",
+    "hours": "Open Mon–Sun 11am–11pm",
+    "logo": "🍔",
+    "orderGreeting": "Hi! I'd like to place an order from Burger Barn:",
+    "orderThanks": "Thanks! 🍔"
+  },
+  "categories": [
+    {
+      "name": "Burgers",
+      "icon": "🍔",
+      "items": [
+        {
+          "name": "Classic Smash Burger",
+          "description": "Single patty, American cheese, pickles, secret sauce",
+          "price": 8.99
+        },
+        {
+          "name": "Double Double",
+          "displayName": "Double Double",
+          "description": "Two patties, two slices of cheese, grilled onions, lettuce, tomato",
+          "price": 11.99
+        },
+        {
+          "name": "BBQ Bacon Burger",
+          "displayName": "BBQ Bacon",
+          "description": "Smoky BBQ sauce, crispy bacon, cheddar, crispy onion strings",
+          "price": 12.99
+        },
+        {
+          "name": "Mushroom Swiss Burger",
+          "displayName": "Mushroom Swiss",
+          "description": "Sautéed mushrooms, Swiss cheese, garlic aioli",
+          "price": 11.49
+        },
+        {
+          "name": "Veggie Burger",
+          "description": "House-made black bean patty, avocado, sprouts, chipotle mayo",
+          "price": 9.99
+        }
+      ]
+    },
+    {
+      "name": "Sides",
+      "icon": "🍟",
+      "items": [
+        {
+          "name": "French Fries",
+          "description": "Crispy, skin-on, seasoned with sea salt",
+          "price": 3.99
+        },
+        {
+          "name": "Onion Rings",
+          "description": "Thick-cut, beer-battered, with ranch dip",
+          "price": 4.49
+        },
+        {
+          "name": "Sweet Potato Fries",
+          "description": "Lightly seasoned, served with honey mustard",
+          "price": 4.49
+        },
+        {
+          "name": "Side Salad",
+          "description": "Mixed greens, cherry tomatoes, choice of dressing",
+          "price": 4.99
+        },
+        {
+          "name": "Coleslaw",
+          "description": "Classic creamy style, made fresh daily",
+          "price": 2.99
+        }
+      ]
+    },
+    {
+      "name": "Shakes",
+      "icon": "🥤",
+      "items": [
+        {
+          "name": "Vanilla Shake",
+          "description": "House-made vanilla ice cream, whole milk, whipped cream",
+          "price": 5.99
+        },
+        {
+          "name": "Chocolate Shake",
+          "description": "Chocolate ice cream, chocolate syrup, whipped cream",
+          "price": 5.99
+        },
+        {
+          "name": "Strawberry Shake",
+          "description": "Fresh strawberries blended in, whipped cream",
+          "price": 5.99
+        },
+        {
+          "name": "Salted Caramel Shake",
+          "description": "Caramel swirl, pretzel bits on top",
+          "price": 6.49
+        }
+      ]
+    },
+    {
+      "name": "Drinks",
+      "icon": "🧃",
+      "items": [
+        {
+          "name": "Fountain Soda",
+          "description": "Coke, Diet Coke, Sprite, Root Beer, Dr. Pepper",
+          "price": 2.49
+        },
+        {
+          "name": "Fresh Lemonade",
+          "description": "Squeezed daily, not from concentrate",
+          "price": 3.49
+        },
+        {
+          "name": "Iced Tea",
+          "description": "Sweetened or unsweetened",
+          "price": 2.49
+        },
+        {
+          "name": "Bottled Water",
+          "description": null,
+          "price": 1.99
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "icon": "🍦",
+      "items": [
+        {
+          "name": "Soft Serve Cone",
+          "description": "Vanilla or chocolate swirl, cake or sugar cone",
+          "price": 3.49
+        },
+        {
+          "name": "Banana Split",
+          "description": "Three scoops, hot fudge, strawberry, pineapple, whipped cream",
+          "price": 7.99
+        }
+      ]
+    }
+  ]
+}
