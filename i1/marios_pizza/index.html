@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taco Loco</title>
+  <title>Mario's Pizza</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,8 +12,8 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fffbf0;
+      font-family: Georgia, serif;
+      background-color: #fff8f0;
       color: #2c2c2c;
       max-width: 640px;
       margin: 0 auto;
@@ -23,63 +23,52 @@
     /* ── Header ── */
     header {
       text-align: center;
-      background: linear-gradient(135deg, #e67e22, #f39c12);
+      background-color: #c0392b;
       color: white;
-      padding: 28px 16px;
-      border-radius: 16px;
+      padding: 24px 16px;
+      border-radius: 12px;
       margin-bottom: 24px;
-      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
     }
 
     header .logo {
-      font-size: 60px;
+      font-size: 56px;
       display: block;
       margin-bottom: 8px;
     }
 
     header h1 {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 32px;
+      letter-spacing: 1px;
     }
 
-    header .tagline {
+    header p {
       font-size: 14px;
       opacity: 0.9;
       margin-top: 6px;
-      font-style: italic;
     }
 
     /* ── Section headers ── */
     h2 {
-      font-size: 19px;
-      font-weight: 900;
-      color: #e67e22;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-left: 5px solid #e67e22;
-      padding-left: 10px;
-      margin: 26px 0 12px;
+      font-size: 20px;
+      color: #c0392b;
+      border-bottom: 2px solid #c0392b;
+      padding-bottom: 6px;
+      margin: 24px 0 12px;
     }
 
     /* ── Menu items ── */
     .menu-item {
       display: flex;
       align-items: flex-start;
-      padding: 12px 10px;
-      border-bottom: 1px solid #fce8c9;
+      padding: 12px 8px;
+      border-bottom: 1px solid #f0e0d0;
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: 6px;
       transition: background-color 0.15s;
     }
 
     .menu-item:hover {
-      background-color: #fff3e0;
-    }
-
-    .menu-item:last-of-type {
-      border-bottom: none;
+      background-color: #fdecea;
     }
 
     .menu-item input[type="checkbox"] {
@@ -87,8 +76,8 @@
       height: 22px;
       margin-right: 14px;
       flex-shrink: 0;
-      margin-top: 3px;
-      accent-color: #e67e22;
+      margin-top: 2px;
+      accent-color: #c0392b;
       cursor: pointer;
     }
 
@@ -103,75 +92,59 @@
 
     .item-desc {
       font-size: 13px;
-      color: #888;
-      margin-top: 3px;
+      color: #777;
+      margin-top: 2px;
     }
 
     .item-price {
       font-weight: bold;
-      color: #e67e22;
+      color: #c0392b;
       white-space: nowrap;
       margin-left: 12px;
       font-size: 16px;
     }
 
-    /* ── Category card ── */
-    .category-card {
-      background: white;
-      border-radius: 12px;
-      padding: 4px 0;
-      margin-bottom: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-
     /* ── Order section ── */
     #order-section {
-      background-color: white;
-      border: 2px solid #e67e22;
-      border-radius: 16px;
-      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #c0392b;
+      border-radius: 12px;
+      padding: 18px;
       margin-top: 32px;
-      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
     }
 
     #order-section h2 {
-      border-left: none;
-      border-bottom: 2px solid #f39c12;
-      padding-left: 0;
-      padding-bottom: 8px;
-      margin-bottom: 14px;
+      border-color: #c0392b;
+      margin-top: 0;
     }
 
     #order-list {
       min-height: 40px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .order-line {
       display: flex;
       justify-content: space-between;
-      padding: 7px 0;
-      border-bottom: 1px dashed #fce8c9;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0e0d0;
       font-size: 15px;
     }
 
     .empty-msg {
-      color: #bbb;
+      color: #aaa;
       font-style: italic;
       font-size: 14px;
-      text-align: center;
-      padding: 10px 0;
     }
 
     .total-row {
       display: flex;
       justify-content: space-between;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: bold;
-      padding-top: 12px;
-      margin-top: 4px;
-      border-top: 2px solid #e67e22;
-      color: #e67e22;
+      padding-top: 10px;
+      margin-top: 6px;
+      border-top: 2px solid #c0392b;
     }
 
     /* ── Buttons ── */
@@ -184,16 +157,12 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin-top: 12px;
-      transition: transform 0.1s, opacity 0.2s;
-    }
-
-    .big-btn:active {
-      transform: scale(0.98);
+      margin-top: 14px;
+      transition: opacity 0.2s;
     }
 
     .big-btn:hover {
-      opacity: 0.9;
+      opacity: 0.88;
     }
 
     #generate-btn {
@@ -208,8 +177,8 @@
     }
 
     #clear-btn {
-      background-color: #bdc3c7;
-      color: #555;
+      background-color: #95a5a6;
+      color: white;
     }
 
     /* ── Text output ── */
@@ -220,17 +189,16 @@
       font-family: monospace;
       padding: 12px;
       border-radius: 8px;
-      border: 2px dashed #f39c12;
-      background: #fffbf0;
+      border: 1px solid #ccc;
       margin-top: 12px;
       resize: vertical;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     footer {
       text-align: center;
       font-size: 12px;
-      color: #ccc;
+      color: #bbb;
       margin-top: 40px;
       padding-bottom: 20px;
     }
@@ -239,7 +207,7 @@
     .loading {
       text-align: center;
       padding: 40px;
-      color: #e67e22;
+      color: #c0392b;
       font-size: 18px;
     }
 
@@ -254,9 +222,9 @@
 <body>
 
   <header>
-    <span class="logo" id="header-logo">🌮</span>
-    <h1 id="header-name">Taco Loco</h1>
-    <p class="tagline" id="header-tagline">Loading...</p>
+    <span class="logo" id="header-logo">🍕</span>
+    <h1 id="header-name">Mario's Pizza</h1>
+    <p id="header-tagline">Loading...</p>
   </header>
 
   <div id="menu-container">
@@ -267,7 +235,7 @@
   <div id="order-section">
     <h2>🛒 Your Order</h2>
     <div id="order-list">
-      <p class="empty-msg">Tap items above to start your order!</p>
+      <p class="empty-msg">Select items above to build your order.</p>
     </div>
     <div class="total-row">
       <span>Total</span>
@@ -277,7 +245,7 @@
     <button class="big-btn" id="generate-btn" onclick="generateTextOrder()">
       📱 Create My Text Order
     </button>
-    <textarea id="text-order" rows="11"></textarea>
+    <textarea id="text-order" rows="10"></textarea>
     <button class="big-btn" id="copy-btn" onclick="copyOrder()">
       Copy to Clipboard
     </button>
@@ -291,26 +259,22 @@
   </footer>
 
   <script>
-    const STORAGE_KEY = 'taco_loco_data';
-    const DATA_URL = 'data/taco_loco.json';
+    const STORAGE_KEY = 'marios_pizza_data';
+    const DATA_URL = 'data.json';
     let menuData = null;
 
     async function loadData() {
-      // Check localStorage first
       const cached = localStorage.getItem(STORAGE_KEY);
       if (cached) {
         try {
           menuData = JSON.parse(cached);
           renderPage();
-          // Fetch fresh data in background to update cache
           fetchAndCache();
           return;
         } catch (e) {
           localStorage.removeItem(STORAGE_KEY);
         }
       }
-
-      // Fetch from server
       await fetchAndCache();
     }
 
@@ -333,18 +297,15 @@
     function renderPage() {
       const { restaurant, categories } = menuData;
 
-      // Update header
       document.getElementById('header-logo').textContent = restaurant.logo;
       document.getElementById('header-name').textContent = restaurant.name;
       document.getElementById('header-tagline').textContent =
-        `${restaurant.tagline} · ${restaurant.phone}`;
+        `${restaurant.tagline} · Call us at ${restaurant.phone}`;
 
-      // Update footer
       const footerParts = [restaurant.name, restaurant.address, restaurant.phone];
       if (restaurant.hours) footerParts.push(restaurant.hours);
       document.getElementById('footer').textContent = footerParts.join(' · ');
 
-      // Render menu
       const container = document.getElementById('menu-container');
       container.innerHTML = '';
 
@@ -352,9 +313,6 @@
         const header = document.createElement('h2');
         header.textContent = category.icon ? `${category.icon} ${category.name}` : category.name;
         container.appendChild(header);
-
-        const card = document.createElement('div');
-        card.className = 'category-card';
 
         category.items.forEach(item => {
           const label = document.createElement('label');
@@ -388,10 +346,8 @@
           label.appendChild(checkbox);
           label.appendChild(info);
           label.appendChild(priceSpan);
-          card.appendChild(label);
+          container.appendChild(label);
         });
-
-        container.appendChild(card);
       });
     }
 
@@ -403,7 +359,7 @@
       var html = "";
 
       if (checked.length === 0) {
-        html = '<p class="empty-msg">Tap items above to start your order!</p>';
+        html = '<p class="empty-msg">Select items above to build your order.</p>';
       } else {
         checked.forEach(function(box) {
           var name = box.dataset.name;
@@ -458,7 +414,9 @@
       if (navigator.clipboard) {
         navigator.clipboard.writeText(textArea.value).then(function() {
           copyBtn.textContent = "✓ Copied! Paste it into your texts.";
-          setTimeout(function() { copyBtn.textContent = "Copy to Clipboard"; }, 3000);
+          setTimeout(function() {
+            copyBtn.textContent = "Copy to Clipboard";
+          }, 3000);
         });
       } else {
         document.execCommand("copy");
@@ -474,7 +432,6 @@
       updateOrder();
     }
 
-    // Initialize
     loadData();
   </script>
 

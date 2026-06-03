@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burger Barn</title>
+  <title>Taco Loco</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,8 +12,8 @@
     }
 
     body {
-      font-family: 'Arial Black', 'Arial', sans-serif;
-      background-color: #f5f0e8;
+      font-family: 'Arial', sans-serif;
+      background-color: #fffbf0;
       color: #2c2c2c;
       max-width: 640px;
       margin: 0 auto;
@@ -23,77 +23,63 @@
     /* ── Header ── */
     header {
       text-align: center;
-      background-color: #7b3f00;
+      background: linear-gradient(135deg, #e67e22, #f39c12);
       color: white;
       padding: 28px 16px;
-      border-radius: 16px 16px 0 0;
-      margin-bottom: 0;
-      position: relative;
-    }
-
-    .header-stripe {
-      background-color: #e74c3c;
-      height: 8px;
+      border-radius: 16px;
       margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
     }
 
     header .logo {
-      font-size: 58px;
+      font-size: 60px;
       display: block;
       margin-bottom: 8px;
     }
 
     header h1 {
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     header .tagline {
-      font-size: 13px;
-      opacity: 0.85;
+      font-size: 14px;
+      opacity: 0.9;
       margin-top: 6px;
-      font-weight: normal;
-      font-family: Arial, sans-serif;
+      font-style: italic;
     }
 
     /* ── Section headers ── */
     h2 {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 900;
-      color: white;
-      background-color: #7b3f00;
-      padding: 8px 14px;
-      margin: 20px 0 0;
+      color: #e67e22;
       text-transform: uppercase;
       letter-spacing: 1px;
-    }
-
-    /* ── Category group ── */
-    .category-group {
-      background: white;
-      border: 2px solid #7b3f00;
-      border-top: none;
-      margin-bottom: 12px;
+      border-left: 5px solid #e67e22;
+      padding-left: 10px;
+      margin: 26px 0 12px;
     }
 
     /* ── Menu items ── */
     .menu-item {
       display: flex;
       align-items: flex-start;
-      padding: 12px 14px;
-      border-bottom: 1px solid #f0e8d8;
+      padding: 12px 10px;
+      border-bottom: 1px solid #fce8c9;
       cursor: pointer;
+      border-radius: 8px;
       transition: background-color 0.15s;
     }
 
-    .menu-item:last-child {
-      border-bottom: none;
+    .menu-item:hover {
+      background-color: #fff3e0;
     }
 
-    .menu-item:hover {
-      background-color: #fdf5e8;
+    .menu-item:last-of-type {
+      border-bottom: none;
     }
 
     .menu-item input[type="checkbox"] {
@@ -102,7 +88,7 @@
       margin-right: 14px;
       flex-shrink: 0;
       margin-top: 3px;
-      accent-color: #7b3f00;
+      accent-color: #e67e22;
       cursor: pointer;
     }
 
@@ -119,35 +105,41 @@
       font-size: 13px;
       color: #888;
       margin-top: 3px;
-      font-family: Arial, sans-serif;
-      font-weight: normal;
     }
 
     .item-price {
-      font-weight: 900;
-      color: #7b3f00;
+      font-weight: bold;
+      color: #e67e22;
       white-space: nowrap;
       margin-left: 12px;
       font-size: 16px;
     }
 
+    /* ── Category card ── */
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      padding: 4px 0;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
     /* ── Order section ── */
     #order-section {
       background-color: white;
-      border: 3px solid #7b3f00;
-      border-radius: 4px;
+      border: 2px solid #e67e22;
+      border-radius: 16px;
       padding: 20px;
       margin-top: 32px;
+      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
     }
 
-    #order-section > h2 {
-      background: none;
-      color: #7b3f00;
-      padding: 0;
+    #order-section h2 {
+      border-left: none;
+      border-bottom: 2px solid #f39c12;
+      padding-left: 0;
       padding-bottom: 8px;
-      margin-top: 0;
       margin-bottom: 14px;
-      border-bottom: 3px solid #7b3f00;
     }
 
     #order-list {
@@ -159,18 +151,14 @@
       display: flex;
       justify-content: space-between;
       padding: 7px 0;
-      border-bottom: 1px dotted #e0d0b8;
+      border-bottom: 1px dashed #fce8c9;
       font-size: 15px;
-      font-family: Arial, sans-serif;
-      font-weight: normal;
     }
 
     .empty-msg {
       color: #bbb;
       font-style: italic;
       font-size: 14px;
-      font-family: Arial, sans-serif;
-      font-weight: normal;
       text-align: center;
       padding: 10px 0;
     }
@@ -178,11 +166,12 @@
     .total-row {
       display: flex;
       justify-content: space-between;
-      font-size: 20px;
-      font-weight: 900;
+      font-size: 19px;
+      font-weight: bold;
       padding-top: 12px;
-      margin-top: 6px;
-      border-top: 3px solid #7b3f00;
+      margin-top: 4px;
+      border-top: 2px solid #e67e22;
+      color: #e67e22;
     }
 
     /* ── Buttons ── */
@@ -190,15 +179,13 @@
       display: block;
       width: 100%;
       padding: 16px;
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      font-size: 17px;
+      font-weight: bold;
       border: none;
-      border-radius: 4px;
+      border-radius: 10px;
       cursor: pointer;
       margin-top: 12px;
-      transition: opacity 0.2s, transform 0.1s;
+      transition: transform 0.1s, opacity 0.2s;
     }
 
     .big-btn:active {
@@ -210,7 +197,7 @@
     }
 
     #generate-btn {
-      background-color: #e74c3c;
+      background-color: #27ae60;
       color: white;
     }
 
@@ -232,9 +219,9 @@
       font-size: 15px;
       font-family: monospace;
       padding: 12px;
-      border-radius: 4px;
-      border: 2px solid #7b3f00;
-      background: #fdf5e8;
+      border-radius: 8px;
+      border: 2px dashed #f39c12;
+      background: #fffbf0;
       margin-top: 12px;
       resize: vertical;
       line-height: 1.7;
@@ -243,18 +230,16 @@
     footer {
       text-align: center;
       font-size: 12px;
-      color: #bbb;
+      color: #ccc;
       margin-top: 40px;
       padding-bottom: 20px;
-      font-family: Arial, sans-serif;
-      font-weight: normal;
     }
 
     /* ── Loading state ── */
     .loading {
       text-align: center;
       padding: 40px;
-      color: #7b3f00;
+      color: #e67e22;
       font-size: 18px;
     }
 
@@ -269,11 +254,10 @@
 <body>
 
   <header>
-    <span class="logo" id="header-logo">🍔</span>
-    <h1 id="header-name">Burger Barn</h1>
+    <span class="logo" id="header-logo">🌮</span>
+    <h1 id="header-name">Taco Loco</h1>
     <p class="tagline" id="header-tagline">Loading...</p>
   </header>
-  <div class="header-stripe"></div>
 
   <div id="menu-container">
     <p class="loading">Loading menu...</p>
@@ -283,7 +267,7 @@
   <div id="order-section">
     <h2>🛒 Your Order</h2>
     <div id="order-list">
-      <p class="empty-msg">Select items above to start building your order.</p>
+      <p class="empty-msg">Tap items above to start your order!</p>
     </div>
     <div class="total-row">
       <span>Total</span>
@@ -307,26 +291,22 @@
   </footer>
 
   <script>
-    const STORAGE_KEY = 'burger_barn_data';
-    const DATA_URL = 'data/burger_barn.json';
+    const STORAGE_KEY = 'taco_loco_data';
+    const DATA_URL = 'data.json';
     let menuData = null;
 
     async function loadData() {
-      // Check localStorage first
       const cached = localStorage.getItem(STORAGE_KEY);
       if (cached) {
         try {
           menuData = JSON.parse(cached);
           renderPage();
-          // Fetch fresh data in background to update cache
           fetchAndCache();
           return;
         } catch (e) {
           localStorage.removeItem(STORAGE_KEY);
         }
       }
-
-      // Fetch from server
       await fetchAndCache();
     }
 
@@ -349,18 +329,15 @@
     function renderPage() {
       const { restaurant, categories } = menuData;
 
-      // Update header
       document.getElementById('header-logo').textContent = restaurant.logo;
       document.getElementById('header-name').textContent = restaurant.name;
       document.getElementById('header-tagline').textContent =
         `${restaurant.tagline} · ${restaurant.phone}`;
 
-      // Update footer
       const footerParts = [restaurant.name, restaurant.address, restaurant.phone];
       if (restaurant.hours) footerParts.push(restaurant.hours);
       document.getElementById('footer').textContent = footerParts.join(' · ');
 
-      // Render menu
       const container = document.getElementById('menu-container');
       container.innerHTML = '';
 
@@ -369,8 +346,8 @@
         header.textContent = category.icon ? `${category.icon} ${category.name}` : category.name;
         container.appendChild(header);
 
-        const group = document.createElement('div');
-        group.className = 'category-group';
+        const card = document.createElement('div');
+        card.className = 'category-card';
 
         category.items.forEach(item => {
           const label = document.createElement('label');
@@ -404,10 +381,10 @@
           label.appendChild(checkbox);
           label.appendChild(info);
           label.appendChild(priceSpan);
-          group.appendChild(label);
+          card.appendChild(label);
         });
 
-        container.appendChild(group);
+        container.appendChild(card);
       });
     }
 
@@ -419,7 +396,7 @@
       var html = "";
 
       if (checked.length === 0) {
-        html = '<p class="empty-msg">Select items above to start building your order.</p>';
+        html = '<p class="empty-msg">Tap items above to start your order!</p>';
       } else {
         checked.forEach(function(box) {
           var name = box.dataset.name;
@@ -490,7 +467,6 @@
       updateOrder();
     }
 
-    // Initialize
     loadData();
   </script>
 
