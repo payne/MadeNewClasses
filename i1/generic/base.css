@@ -1,0 +1,234 @@
+/* Base styles shared by all stores */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #2c2c2c;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 24px 16px;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 0;
+}
+
+.header-stripe {
+  height: 0;
+  margin-bottom: 24px;
+}
+
+header .logo {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+header h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+header .tagline {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+/* ── Section headers ── */
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 8px 14px;
+  margin: 20px 0 0;
+}
+
+/* ── Category group ── */
+.category-group {
+  background: white;
+  margin-bottom: 12px;
+}
+
+/* ── Menu items ── */
+.menu-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background-color: #f8f8f8;
+}
+
+.menu-item input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 14px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item-desc {
+  font-size: 13px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.item-price {
+  font-weight: bold;
+  white-space: nowrap;
+  margin-left: 12px;
+  font-size: 16px;
+}
+
+/* ── Order section ── */
+#order-section {
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 4px;
+  padding: 20px;
+  margin-top: 32px;
+}
+
+#order-section > h2 {
+  background: none;
+  padding: 0;
+  padding-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #333;
+}
+
+#order-list {
+  min-height: 40px;
+  margin-bottom: 14px;
+}
+
+.order-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 15px;
+}
+
+.empty-msg {
+  color: #bbb;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 12px;
+  margin-top: 6px;
+  border-top: 2px solid #333;
+}
+
+/* ── Buttons ── */
+.big-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.big-btn:active {
+  transform: scale(0.98);
+}
+
+.big-btn:hover {
+  opacity: 0.9;
+}
+
+#generate-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+#copy-btn {
+  background-color: #2980b9;
+  color: white;
+  display: none;
+}
+
+#clear-btn {
+  background-color: #bdc3c7;
+  color: #555;
+}
+
+/* ── Text output ── */
+#text-order {
+  display: none;
+  width: 100%;
+  font-size: 15px;
+  font-family: monospace;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 12px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+/* ── Loading state ── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+}
+
+.error {
+  text-align: center;
+  padding: 40px;
+  color: #e74c3c;
+  font-size: 16px;
+}

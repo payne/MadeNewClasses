@@ -1,0 +1,93 @@
+/* Mario's Pizza theme overrides */
+body {
+  font-family: Georgia, serif;
+  background-color: #fff8f0;
+}
+
+header {
+  background-color: #c0392b;
+  border-radius: 12px;
+  padding: 24px 16px;
+  margin-bottom: 24px;
+}
+
+.header-stripe {
+  display: none;
+}
+
+h2 {
+  font-size: 20px;
+  color: #c0392b;
+  background: none;
+  border-bottom: 2px solid #c0392b;
+  padding: 0 0 6px 0;
+  margin: 24px 0 12px;
+}
+
+.category-group {
+  background: transparent;
+  border: none;
+}
+
+.menu-item {
+  border-bottom-color: #f0e0d0;
+  border-radius: 6px;
+}
+
+.menu-item:hover {
+  background-color: #fdecea;
+}
+
+.menu-item input[type="checkbox"] {
+  accent-color: #c0392b;
+}
+
+.item-desc {
+  color: #777;
+}
+
+.item-price {
+  color: #c0392b;
+}
+
+#order-section {
+  border: 2px solid #c0392b;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+#order-section > h2 {
+  color: #c0392b;
+  border-bottom-color: #c0392b;
+}
+
+.order-line {
+  border-bottom-color: #f0e0d0;
+  padding: 6px 0;
+}
+
+.total-row {
+  font-size: 18px;
+  border-top: 2px solid #c0392b;
+  padding-top: 10px;
+}
+
+.big-btn {
+  border-radius: 10px;
+  font-size: 17px;
+  margin-top: 14px;
+}
+
+#clear-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+#text-order {
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.loading {
+  color: #c0392b;
+}

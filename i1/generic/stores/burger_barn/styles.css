@@ -1,0 +1,87 @@
+/* Burger Barn theme overrides */
+body {
+  font-family: 'Arial Black', 'Arial', sans-serif;
+  background-color: #f5f0e8;
+}
+
+header {
+  background-color: #7b3f00;
+  border-radius: 16px 16px 0 0;
+  padding: 28px 16px;
+}
+
+.header-stripe {
+  background-color: #e74c3c;
+  height: 8px;
+}
+
+header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+header .tagline {
+  font-size: 13px;
+}
+
+h2 {
+  font-weight: 900;
+  color: white;
+  background-color: #7b3f00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-group {
+  border: 2px solid #7b3f00;
+  border-top: none;
+}
+
+.menu-item {
+  border-bottom-color: #f0e8d8;
+}
+
+.menu-item:hover {
+  background-color: #fdf5e8;
+}
+
+.menu-item input[type="checkbox"] {
+  accent-color: #7b3f00;
+}
+
+.item-price {
+  font-weight: 900;
+  color: #7b3f00;
+}
+
+#order-section {
+  border: 3px solid #7b3f00;
+}
+
+#order-section > h2 {
+  color: #7b3f00;
+  border-bottom: 3px solid #7b3f00;
+}
+
+.order-line {
+  border-bottom-color: #e0d0b8;
+}
+
+.total-row {
+  border-top: 3px solid #7b3f00;
+}
+
+#generate-btn {
+  background-color: #e74c3c;
+}
+
+#text-order {
+  border: 2px solid #7b3f00;
+  background: #fdf5e8;
+}
+
+.loading {
+  color: #7b3f00;
+}

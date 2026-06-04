@@ -1,0 +1,119 @@
+{
+  "restaurant": {
+    "name": "Mario's Pizza",
+    "phone": "(555) 248-7299",
+    "address": "123 Main Street",
+    "tagline": "Fresh ingredients, made with love since 1987",
+    "hours": null,
+    "logo": "🍕",
+    "orderGreeting": "Hi! I'd like to place a pickup order from Mario's Pizza:",
+    "orderThanks": "Thank you! 🍕"
+  },
+  "categories": [
+    {
+      "name": "Appetizers",
+      "icon": null,
+      "items": [
+        {
+          "name": "Garlic Bread",
+          "description": "Toasted baguette with herb butter",
+          "price": 4.99
+        },
+        {
+          "name": "Bruschetta",
+          "description": "Tomatoes, basil, olive oil on toasted bread",
+          "price": 6.99
+        },
+        {
+          "name": "Mozzarella Sticks",
+          "description": "Fried golden, served with marinara",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "name": "Pizzas",
+      "icon": null,
+      "items": [
+        {
+          "name": "Margherita Pizza",
+          "displayName": "Margherita",
+          "description": "San Marzano tomato, fresh mozzarella, basil",
+          "price": 11.99
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "displayName": "Pepperoni",
+          "description": "Classic red sauce, mozzarella, pepperoni",
+          "price": 13.99
+        },
+        {
+          "name": "Veggie Supreme Pizza",
+          "displayName": "Veggie Supreme",
+          "description": "Mushrooms, peppers, onions, olives, spinach",
+          "price": 12.99
+        },
+        {
+          "name": "Meat Lovers Pizza",
+          "displayName": "Meat Lovers",
+          "description": "Pepperoni, sausage, meatballs, ham, bacon",
+          "price": 15.99
+        }
+      ]
+    },
+    {
+      "name": "Pasta",
+      "icon": null,
+      "items": [
+        {
+          "name": "Spaghetti & Meatballs",
+          "displayName": "Spaghetti & Meatballs",
+          "description": "House-made tomato sauce, three large meatballs",
+          "price": 12.99
+        },
+        {
+          "name": "Fettuccine Alfredo",
+          "description": "Creamy parmesan sauce, fresh pasta",
+          "price": 11.99
+        }
+      ]
+    },
+    {
+      "name": "Drinks",
+      "icon": null,
+      "items": [
+        {
+          "name": "Fountain Soda",
+          "description": "Coke, Diet Coke, Sprite, Root Beer",
+          "price": 2.99
+        },
+        {
+          "name": "Sparkling Water",
+          "description": "San Pellegrino",
+          "price": 3.49
+        },
+        {
+          "name": "Lemonade",
+          "description": "Fresh-squeezed with mint",
+          "price": 3.49
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "icon": null,
+      "items": [
+        {
+          "name": "Tiramisu",
+          "description": "Classic Italian, dusted with cocoa powder",
+          "price": 6.99
+        },
+        {
+          "name": "Cannoli",
+          "description": "Crispy shell, sweet ricotta filling",
+          "price": 5.99
+        }
+      ]
+    }
+  ]
+}

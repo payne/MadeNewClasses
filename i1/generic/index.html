@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" id="store-styles" href="">
+</head>
+<body>
+
+  <header>
+    <span class="logo" id="header-logo"></span>
+    <h1 id="header-name">Loading...</h1>
+    <p class="tagline" id="header-tagline"></p>
+  </header>
+  <div class="header-stripe"></div>
+
+  <div id="menu-container">
+    <p class="loading">Loading menu...</p>
+  </div>
+
+  <div id="order-section">
+    <h2>Your Order</h2>
+    <div id="order-list">
+      <p class="empty-msg">Select items above to start building your order.</p>
+    </div>
+    <div class="total-row">
+      <span>Total</span>
+      <span id="total">$0.00</span>
+    </div>
+
+    <button class="big-btn" id="generate-btn" onclick="generateTextOrder()">
+      Create My Text Order
+    </button>
+    <textarea id="text-order" rows="11"></textarea>
+    <button class="big-btn" id="copy-btn" onclick="copyOrder()">
+      Copy to Clipboard
+    </button>
+    <button class="big-btn" id="clear-btn" onclick="clearOrder()">
+      Clear Order
+    </button>
+  </div>
+
+  <footer id="footer">
+    Loading...
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* Taco Loco theme overrides */
+body {
+  background-color: #fffbf0;
+}
+
+header {
+  background: linear-gradient(135deg, #e67e22, #f39c12);
+  border-radius: 16px;
+  padding: 28px 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+.header-stripe {
+  display: none;
+}
+
+header h1 {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+header .tagline {
+  font-style: italic;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 900;
+  color: #e67e22;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-left: 5px solid #e67e22;
+  border-bottom: none;
+  padding: 0 0 0 10px;
+  margin: 26px 0 12px;
+}
+
+.category-group {
+  background: white;
+  border-radius: 12px;
+  padding: 4px 0;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: none;
+}
+
+.menu-item {
+  border-bottom-color: #fce8c9;
+  border-radius: 8px;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:hover {
+  background-color: #fff3e0;
+}
+
+.menu-item input[type="checkbox"] {
+  accent-color: #e67e22;
+}
+
+.item-price {
+  color: #e67e22;
+}
+
+#order-section {
+  border: 2px solid #e67e22;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
+}
+
+#order-section > h2 {
+  color: #e67e22;
+  border-left: none;
+  border-bottom: 2px solid #f39c12;
+  padding-left: 0;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.order-line {
+  border-bottom: 1px dashed #fce8c9;
+}
+
+.total-row {
+  font-size: 19px;
+  border-top: 2px solid #e67e22;
+  color: #e67e22;
+  margin-top: 4px;
+}
+
+.big-btn {
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+#clear-btn {
+  color: #555;
+}
+
+#text-order {
+  border: 2px dashed #f39c12;
+  border-radius: 8px;
+  background: #fffbf0;
+}
+
+footer {
+  color: #ccc;
+}
+
+.loading {
+  color: #e67e22;
+}
